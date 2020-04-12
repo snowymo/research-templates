@@ -3,3 +3,7 @@ final.pdf
 example.pdf
 draft.out
 final.out
+*.aux
+*.bbl
+*.blg
+*.log
