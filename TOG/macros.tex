@@ -42,6 +42,11 @@
 
 \definecolor{SithColor}{rgb}{0.7,0,0} % color for Sith
 \newcommand{\qisun}[1]{{\color{SithColor} Qi: #1 $\qed$}}
+\definecolor{nyuColor}{rgb}{0.34,0.18,0.55} % R87, G46, B140
+\newcommand{\zh}[1]{{\color{nyuColor} Zhenyi: #1 $\qed$}}
+\definecolor{sjtuColor}{rgb}{0.31,0.65,0}
+\newcommand{\dnc}[1]{{\color{sjtuColor} Nianchen: #1 $\qed$}}
+\newcommand{\zhtd}[1]{{\color{nyuColor} #1 }}
 \definecolor{ConsularColor}{rgb}{0,0.4,0} % color for the Jedi Consulars (e.g. Yoda)
 \definecolor{GuardianColor}{rgb}{0,0,0.8} % color for the Jedi Guardians (e.g. Obiwan)
 \newcommand{\obiwan}[1]{{\color{GuardianColor} Obiwan: #1 $\qed$}}
@@ -65,6 +70,9 @@
 \ifthenelse{\equal{\final}{1}}
 {
 \renewcommand{\qisun}[1]{}
+\renewcommand{\zh}[1]{}
+\renewcommand{\dnc}[1]{}
+\renewcommand{\zhtd}[1]{}
 \renewcommand{\obiwan}[1]{}
 \renewcommand{\yoda}[1]{}
 \renewcommand{\warning}[1]{}

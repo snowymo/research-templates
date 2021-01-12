@@ -5,48 +5,49 @@ What problem we are trying to solve.
 Why it is important, and why people should care.
 }%note
 
-Started from remote desktops and online videos, cloud-based computing has show unprecedented potential to reshape computer graphics pipeline by completely relieving end-user's computational workload thus device bulkiness. In recent years, we have observed growing interactive streaming services such as Google Stadia or NVIDIA Shield. 
-However, these off-the-shelf services have only been deployed in less latency sensitive platforms such as TV-based game consoles, due to the inevitable latency (more than 100ms \footnote{\url{https://www.pcgamer.com/heres-how-stadias-input-lag-compares-to-native-pc-gaming/}}. Immersive medias, such as virtual and augmented realities, demand remarkably lower latency and higher fidelity/speed for sickness-free and natural experience. Due to the consequently massive spatial-temporal data volume, there is no solution for streaming frames from server to individual end users today.
+With the advent of remote desktops and streaming services, cloud-based computing has shown unprecedented potential reshaping traditional computer graphics pipeline by completely relieving end-user's computational workload, local storage volume, thus advance device portability. Recent years has seen growing interactive streaming services such as Google Stadia or NVIDIA Shield. 
+However, these off-the-shelf services have only been deployed in less latency-sensitive platforms such as TV-based game consoles, due to the inevitable latency (more than 100ms \footnote{\url{https://www.pcgamer.com/heres-how-stadias-input-lag-compares-to-native-pc-gaming/}}. Immersive media such as virtual and augmented reality (VR/AR), however, demand remarkably lower latency and higher fidelity/speed for sickness-free and natural experience. 
+Due to the consequently massive spatial-temporal high-quality data volume, there is no available solution today that is capable of streaming such dense content to the individual end user.
 
 \note{
 What prior works have done, and why they are not adequate.
 (Note: this is just high level big ideas. Details should go to a previous work section.)
 }%note
+\qisun{(Jan 5, 2021) We should include two main fields: neural representation and foveated rendering}
 
+Recent years have seen a surge in neural representations as an alternative to compact 3D representations such as point clouds and polygonal meshes, enabling compact assets. Application of neural representations include voxelization \cite{sitzmann2019deepvoxels}, distance fields \cite{sitzmann2019metasdf,mildenhall2020nerf} and many more. However, existing solutions suffer from either high time consumption or low image fidelity. 
+
+To accelerate real-time rendering tailored for VR, gaze-contingent foveated rendering approaches have shown remarkable effectiveness of presenting imagery of perceptual quality identical to full resolution rendering~\cite{Patney:2016:TFR}. This is achieved by harnessing high FoV head-mounted displays and high precision eye-tracking technologies. Unfortunately, foveated rendering approaches still require full local 3D asset storage, resulting in a significant loading time and memory shortage.
 
 \note{
 What our method has to offer, sales pitch for concrete benefits, not technical details.
 Imagine we are doing a TV advertisement here.
 }%note
 
-This document provides a template for writing research papers, and describes how to manage project progress via iterating drafts.
-Doing this correctly can help you achieve productive research and happy life, e.g. working anywhere anytime without synchronous meetings with your collaborators.
+In this paper, we present the first gaze-contingent real-time 6DoF neural synthesis of scenes, aiming at the next generation cloud-based wearable immersive platforms.
+Specifically, our method significantly reduces 3D data storage (\warning{xxx ms}), and rendering time (\warning{xxx ms}) compared with the existing methods. It enables low-latency interactive VR/AR 6DoF viewable 3D virtual content without compromising perceived quality. Tailoring for future light weight, power and memory efficient wearable display systems, expected to be active all-day long akin to today's everyday-use mobile phones, our method achieves minimal local storage for any high quality 3D scenes. 
 
 \note{
 Our main idea, giving people a take home message and (if possible) see how clever we are.
 }%note
 
-I learned from my PhD adviser to start writing from the moment I have the faintest idea, and gradually update the drafts to reflect progress.
-During my first job with NVIDIA, I learned why and how revision control is essential for sharing and editing source files, especially among large engineering teams.
-The iterative nature of writing and coding matches well with the capability of revision control.
-Thus I prefer Latex + git/svn (e.g. github, bitbucket, and the svn server under my hosting service), even though I can still manage with MS Word + cloud drive (e.g. Google drive, Box, and Dropbox). 
-A good computer scientist writes papers like programs, and manages Latex files like source codes.
-These repos are external memories and communication mediums for the collective brains of my teams.
+In this work, we take an interdisciplinary approach achieving 6-DoF deep neural representation of complex scenes and gaze-contingent real-time rendering. This is realized by our novel data representation and a coarse-to-fine prediction of perceptually high quality imagery while balancing the latency. 
 
 \note{
 Our algorithms and methods to show technical contributions and that our solutions are not trivial.
 }%note
 
-\input{example_fig}
-
-Translating thoughts into words, diagrams, equations, pseudo-codes, or codes is a good way to clarify and consolidate.
-If you are writing a graphics/HCI paper, design the figures so that they alone can provide a high level picture of the main points.
-As exemplified in \Cref{fig:example}, a figure can contain images, drawings, or combinations. 
+Specifically, we represent an arbitrary virtual 3D scene as a compact neural representation in a viewer centered inside-out fashion. 
+We account for the challenges such as low quality/resolution/performance common to existing 3D deep neural representation approaches, we further leverage the human visual perception to synthesize gaze-contingent and vision-matched immersive frames, without compromising the speed and image fidelity. 
+The method is further optimized with in the spatio-temporal domain to balance the latency and precision.
 
 \note{
 Results, applications, and extra benefits.
 }%note
 
-You can use the associated files as a starting template for your research papers.
-Start with the \filename{Makefile}, and notice the two build targets: final for official submission and public disclosure, and draft for internal sharing among your collaborators (including yourself).
-
+We validate our approach by conducting both numerical analysis and user evaluations on commercially available AR/VR display devices. They both reveal the effectiveness of our method on delivering a real-time VR viewing experience, perceptually identical to an arbitrarily high quality rendered 3D scene, without compromising on local storage volume. Our main contributions include the following:
+\begin{itemize}
+    \item A low-latency and significantly low-storage 6DoF immersive application that preserves perceptual quality
+    \item A gaze-contingent neural representation and synthesis method tailored for first-person viewing
+    \item A spatio-temporally joint optimization for balancing latency and perceptual quality
+\end{itemize}
