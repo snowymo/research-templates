@@ -12,7 +12,7 @@ Due to the consequently massive spatial-temporal high-quality data volume, there
 \note{
 What prior works have done, and why they are not adequate.
 (Note: this is just high level big ideas. Details should go to a previous work section.)
-}%note
+}%notez
 \qisun{(Jan 5, 2021) We should include two main fields: neural representation and foveated rendering}
 
 Recent years have seen a surge in neural representations as an alternative to compact 3D representations such as point clouds and polygonal meshes, enabling compact assets. Application of neural representations include voxelization \cite{sitzmann2019deepvoxels}, distance fields \cite{sitzmann2019metasdf,mildenhall2020nerf} and many more. However, existing solutions suffer from either high time consumption or low image fidelity. 
@@ -48,6 +48,6 @@ Results, applications, and extra benefits.
 We validate our approach by conducting both numerical analysis and user evaluations on commercially available AR/VR display devices. They both reveal the effectiveness of our method on delivering a real-time VR viewing experience, perceptually identical to an arbitrarily high quality rendered 3D scene, without compromising on local storage volume. Our main contributions include the following:
 \begin{itemize}
     \item A low-latency and significantly low-storage 6DoF immersive application that preserves perceptual quality
-    \item A gaze-contingent neural representation and synthesis method tailored for first-person viewing
+    \item A gaze-contingent scene parameterization and neural representation/synthesis method tailored for first-person viewing
     \item A spatio-temporally joint optimization for balancing latency and perceptual quality
 \end{itemize}

@@ -17,6 +17,98 @@
  keywords = {camera projection, geometry morphing, head-mounted display, human perception, planar map, real-time rendering, redirected walking, virtual reality, warped space},
 } 
 
+@inproceedings{sitzmann2019siren,
+    author = {Sitzmann, Vincent
+              and Martel, Julien N.P.
+              and Bergman, Alexander W.
+              and Lindell, David B.
+              and Wetzstein, Gordon},
+    title = {Implicit Neural Representations
+              with Periodic Activation Functions},
+    booktitle = {Proc. NeurIPS},
+    year={2020}
+}
+
+@inproceedings{sitzmann2019srns,
+    author = {Sitzmann, Vincent
+              and Zollh{\"o}fer, Michael
+              and Wetzstein, Gordon},
+    title = {Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations},
+    booktitle = {Advances in Neural Information Processing Systems},
+    year={2019}
+}
+
+@article{Broxton:immersiveLF,
+author = {Broxton, Michael and Flynn, John and Overbeck, Ryan and Erickson, Daniel and Hedman, Peter and Duvall, Matthew and Dourgarian, Jason and Busch, Jay and Whalen, Matt and Debevec, Paul},
+title = {Immersive Light Field Video with a Layered Mesh Representation},
+year = {2020},
+issue_date = {July 2020},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {39},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3386569.3392485},
+doi = {10.1145/3386569.3392485},
+abstract = {We present a system for capturing, reconstructing, compressing, and rendering high quality immersive light field video. We accomplish this by leveraging the recently introduced DeepView view interpolation algorithm, replacing its underlying multi-plane image (MPI) scene representation with a collection of spherical shells that are better suited for representing panoramic light field content. We further process this data to reduce the large number of shell layers to a small, fixed number of RGBA+depth layers without significant loss in visual quality. The resulting RGB, alpha, and depth channels in these layers are then compressed using conventional texture atlasing and video compression techniques. The final compressed representation is lightweight and can be rendered on mobile VR/AR platforms or in a web browser. We demonstrate light field video results using data from the 16-camera rig of [Pozo et al. 2019] as well as a new low-cost hemispherical array made from 46 synchronized action sports cameras. From this data we produce 6 degree of freedom volumetric videos with a wide 70 cm viewing baseline, 10 pixels per degree angular resolution, and a wide field of view, at 30 frames per second video frame rates. Advancing over previous work, we show that our system is able to reproduce challenging content such as view-dependent reflections, semi-transparent surfaces, and near-field objects as close as 34 cm to the surface of the camera rig.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {86},
+numpages = {15},
+keywords = {image-based rendering, light fields, deep learning, view synthesis}
+}
+
+
+@InProceedings{Lin:DeepPanorama,
+author="Lin, Kai-En
+and Xu, Zexiang
+and Mildenhall, Ben
+and Srinivasan, Pratul P.
+and Hold-Geoffroy, Yannick
+and DiVerdi, Stephen
+and Sun, Qi
+and Sunkavalli, Kalyan
+and Ramamoorthi, Ravi",
+editor="Vedaldi, Andrea
+and Bischof, Horst
+and Brox, Thomas
+and Frahm, Jan-Michael",
+title="Deep Multi Depth Panoramas for View Synthesis",
+booktitle="Computer Vision -- ECCV 2020",
+year="2020",
+publisher="Springer International Publishing",
+address="Cham",
+pages="328--344",
+isbn="978-3-030-58601-0"
+}
+
+
+
+@article{LearningViewSynthesis,
+    author  = {Nima Khademi Kalantari and Ting-Chun Wang and Ravi Ramamoorthi},
+    title   = {Learning-Based View Synthesis for Light Field Cameras},
+    journal = {ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia 2016)},
+    volume  = {35},
+    number  = {6},
+    year    = {2016},
+}
+
+@inproceedings{gortler1996lumigraph,
+  title={The lumigraph},
+  author={Gortler, Steven J and Grzeszczuk, Radek and Szeliski, Richard and Cohen, Michael F},
+  booktitle={Proceedings of the 23rd annual conference on Computer graphics and interactive techniques},
+  pages={43--54},
+  year={1996}
+}
+
+@inproceedings{levoy1996light,
+  title={Light field rendering},
+  author={Levoy, Marc and Hanrahan, Pat},
+  booktitle={Proceedings of the 23rd annual conference on Computer graphics and interactive techniques},
+  pages={31--42},
+  year={1996}
+}
+
 @InProceedings{Li:2020:TSP,
 author="Li, Mengtian
 and Wang, Yu-Xiong
@@ -32,6 +124,17 @@ publisher="Springer International Publishing",
 address="Cham",
 pages="473--488",
 isbn="978-3-030-58536-5"
+}
+
+@article{albert2017latency,
+  title={Latency requirements for foveated rendering in virtual reality},
+  author={Albert, Rachel and Patney, Anjul and Luebke, David and Kim, Joohwan},
+  journal={ACM Transactions on Applied Perception (TAP)},
+  volume={14},
+  number={4},
+  pages={1--13},
+  year={2017},
+  publisher={ACM New York, NY, USA}
 }
 
 

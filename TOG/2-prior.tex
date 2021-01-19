@@ -1,7 +1,15 @@
 \section{Related Work}
 \label{sec:prior}
 
-\subsection{Deep View Synthesis}
+\subsection{Image-based View Synthesis}
+Image-based rendering (IBR) has been proposed in computer graphics to complement the traditional 3D mesh + ray propagation pipelines \cite{levoy1996light,gortler1996lumigraph}. Benefiting from the 2D representation, it delivers pixel-wise fast rendering quality without compromising performance. However, one major limitation of IBR is the demand of large volume pre-captured data. This requires significant large volume of data and limited view ranges. 
+To address this problem, recent years have witnessed extensive research on synthesizing novel views instead of storing. Examples include synthesizing light fields \cite{LearningViewSynthesis}, panoramas \cite{Lin:DeepPanorama}, and volumetric videos \cite{Broxton:immersiveLF}. However, despite being more compact, the synthesis is usually in a locally interpolated fashion than being globally consistent.
 
-\subsection{Gaze-Contingent Rendering}
-\cite{Guenter:2012:F3G,Patney:2016:TFR,Sun:2017:PGF,Kaplanyan:2019:DNR}
+\subsection{Implicit Scene Representation for Neural Rendering}
+To fully represent a 3D object and environment without storing images and meshes, neural representations have drawn attentions in both computer graphics and computer vision communities. With a implicit deep neural network and 3D world tailored format, it generates an objects appearance given a camera pose \cite{sitzmann2019deepvoxels,sitzmann2019srns,sitzmann2019siren,mildenhall2020nerf}. 
+However, current implicit representations focuses on ``out-side-in'' view with single objects. In immersive medias, the cameras are typically user-centered, resulting in lack of coverage thus quality drop. Instead of full scene representation, our method is VR tailored via representing the scene for user-centered views.
+
+\subsection{Gaze-Contingent Virtual Reality Rendering}
+Both rendering and neural synthesis suffers from computational load, thus computational and transmissional latency.
+With a full mesh representation, foveated rendering has been proposed to proposed to accelerate local rendering performance \cite{Guenter:2012:F3G,Patney:2016:TFR,Sun:2017:PGF,Kaplanyan:2019:DNR}. This is typically achieved through high-field-of view displays (such as VR HMDs) and eye-trackers. 
+In comparison, synthesizing views if far from being real-time or interactive. Our method introduces the vision-matched deep synthesis with both high quality and low latency, suitable for cloud-based and local representations.
