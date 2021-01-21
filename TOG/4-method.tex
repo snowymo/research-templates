@@ -1,6 +1,6 @@
 \section{Method}
 \label{sec:method}
-In this section, we discuss our approach to achieve gaze-contingent neural rendering for 6DoF immersive virtual reality. As illustrated in \Cref{fig:pipeline}, our method predominantly comprises of two steps: 1) visual eccentricity aware frame synthesis, discussed in \Cref{sec:method:net}, and real-time rendering with optimized spatial-temporal precision, discussed in \Cref{sec:method:blending}.
+In this section, we discuss our approach to achieve gaze-contingent neural rendering for 6DoF immersive virtual reality. As illustrated in \Cref{fig:system}, our method predominantly comprises of two steps: 1) visual eccentricity aware frame synthesis, discussed in \Cref{sec:method:net}, and real-time rendering with optimized spatial-temporal precision, discussed in \Cref{sec:method:blending}.
 
 %\subsection{Pipeline}
 \begin{figure}[htb]
@@ -10,11 +10,11 @@ In this section, we discuss our approach to achieve gaze-contingent neural rende
     %}
     \subfloat[representation and annotation]{\includegraphics[width=0.8\linewidth]{TOG/figs/variables.pdf}}
     
-    \subfloat[fovea]{\includegraphics[width=0.3\linewidth]{TOG/figs/fovea.png}}\vspace{1em}
-    \subfloat[mid-pheripery]{\includegraphics[width=0.3\linewidth]{TOG/figs/mid.png}}\vspace{1em}
-    \subfloat[far-periphery]{\includegraphics[width=0.3\linewidth]{TOG/figs/periph.png}}
+    \subfloat[fovea]{\includegraphics[width=0.3\linewidth]{TOG/figs/layer_blend/lobby_fovea.png}}\vspace{1em}
+    \subfloat[mid-pheripery]{\includegraphics[width=0.3\linewidth]{TOG/figs/layer_blend/lobby_mid.png}}\vspace{1em}
+    \subfloat[far-periphery]{\includegraphics[width=0.3\linewidth]{TOG/figs/layer_blend/lobby_periph.png}}
     
-    \subfloat[blend]{\includegraphics[width=0.9\linewidth]{TOG/figs/blended_with_mask.png}}
+    \subfloat[blend]{\includegraphics[width=0.9\linewidth]{TOG/figs/layer_blend/lobby_blended_with_mask.png}}
     
     %\subfloat[GazeNet]{\includegraphics[width=\linewidth]{TOG/figs/spher_net_flow.png}
     %\label{fig:net}
@@ -36,8 +36,8 @@ In this section, we discuss our approach to achieve gaze-contingent neural rende
 \paragraph{Multi spherical representation}
 We tailor our method specifically for egocentric (first-person) view in immersive VR environments.
 Unlike the object-focused ``outside-in'' view synthesis~\cite{sitzmann2019deepvoxels,mildenhall2020nerf}, rendering of immersive ``inside-out'' scenes is challenging owing to the rapid variation of scene content. As a consequence of extreme diversity among overlapping views, neural representation of large virtual scenes typically result in significant artifacts as demonstrated in \cref{fig:teaser:scene}. 
-We overcome this problem by depicting the rapidly varying 360-degree virtual scenes with concentric spherical volumes. This representation not only enables robust rendering of complex immersive environments at real-time rates, but also allows for 6DoF interaction for exploring virtual spaces, as will be discussed later.
-
+We overcome this problem by depicting the rapidly varying 360-degree virtual scenes with concentric spherical volumes. 
+Inspired by \cite{Lin:DeepPanorama,Benjamin:2020:RTV}, the representation not only enables robust rendering of complex immersive environments at real-time rates, but also allows for 6DoF interaction for exploring virtual spaces, as will be discussed later.
 
 Inspired by \cite{Broxton:immersiveLF,Lin:DeepPanorama}, we address this problem via depicting a virtual scene with concentric spherical volumes. \zh{shall we emphasize here that the root of concentric spherical volumes is the origin of the virtual scene/world?} \qisun{I intentionally didn't emphasize this part since I was wondering whether that gives people the impression of weak support of larger range translation. What do you think?}
 
@@ -234,9 +234,9 @@ As indicated in \cite{albert2017latency}, the latency shall be below the percept
 
 \begin{figure*}
     \centering
-    \subfloat[quality-only]{\includegraphics[width=0.32\linewidth]{example-image-a}}
-    \subfloat[latency-only]{\includegraphics[width=0.32\linewidth]{example-image-a}}
-    \subfloat[ours]{\includegraphics[width=0.32\linewidth]{example-image-a}}
+    \subfloat[quality-only]{\includegraphics[width=0.3\linewidth]{TOG/figs/latency_vs_quality/quality_only.png}}\hspace{1em}
+    \subfloat[latency-only]{\includegraphics[width=0.3\linewidth]{TOG/figs/latency_vs_quality/latency_only.png}}\hspace{1em}
+    \subfloat[ours]{\includegraphics[width=0.3\linewidth]{TOG/figs/latency_vs_quality/our.png}}
     \caption{Latency-quality joint-optimization.}
     % talking about sample
     % (a) we need several figures with gaze movement
@@ -260,10 +260,10 @@ To enhance consistency of edge area between layers, our fragment shader retrieve
 
 \begin{figure}
     \centering
-    \subfloat[blending]{\includegraphics[width = 0.8\linewidth]{example-image-a}}
+    \subfloat[blending]{\includegraphics[width = 0.8\linewidth]{TOG/figs/system/blended.png}}
 
-    \subfloat[Contrast enhancement]{\includegraphics[width = 0.8\linewidth]{example-image-a}}
-    \caption{Our multi-layer real-time rendering system.}
+    \subfloat[Contrast enhancement]{\includegraphics[width = 0.8\linewidth]{TOG/figs/system/blended_enhanced.png}}
+    \caption{Our multi-layer real-time rendering system.\zh{Or three-image pipeline}}
     \label{fig:method:blending}
 \end{figure}
 
