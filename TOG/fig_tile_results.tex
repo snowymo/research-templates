@@ -1,48 +1,65 @@
-\begin{figure*}[htb]
-    \centering
-    \begin{minipage}{0.32\linewidth} %full res
-        \subfloat[gas scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gas_gt4.png}}
-        
-        \subfloat[minecraft scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_gt3.png}}
-        
-        \subfloat[bedroom scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_gt0.png}}
-    \end{minipage}
-    \begin{minipage}{0.32\linewidth} %ours
-        \subfloat[gas scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gas_our4_inset.pdf}}
-        
-        \subfloat[minecraft scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_our3_inset.pdf}}
-        
-        \subfloat[bedroom scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_our0.png}}               
-    \end{minipage}
-    \begin{minipage}{0.32\linewidth} % NERF
-        \subfloat[gas scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gas_nerf4_inset.pdf}}
-        
-        \subfloat[minecraft scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_nerf3_inset.pdf}}
-        
-        \subfloat[bedroom scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_nerf0.png}}      
-    \end{minipage}    
+\begin{figure*}[!ht]
+    \subfloat[gas scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/gas_inset_mono.pdf}}\label{fig:results:gas}\hspace{1em}
+    \subfloat[minecraft scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/mc_inset_mono.pdf}}\label{fig:results:mc}
     
-    \caption{Comparing our synthesis method (2nd column) with full resolution (1st column) rendering and NeRF (3rd column).}
+    \subfloat[bedroom scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/bedroom_inset_mono.pdf}}\label{fig:results:bedroom}\hspace{1em}
+    \subfloat[gallery scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/gallery_inset_mono.pdf}}\label{fig:results:gallery}
+    
+    % \centering
+    % \subfloat[lobby scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/lobby_inset2.pdf}}
+    % \subfloat[studyroom scene]{\includegraphics[width=0.47\linewidth]{TOG/figs/comparison/bedroom_inset.pdf}}
+    % \centering
+    % \begin{minipage}{0.32\linewidth} %full res
+    %     \subfloat[gas scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/comparison/gas_inset.pdf}}
+        
+    %     \subfloat[minecraft scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_gt3.png}}
+        
+    %     \subfloat[bedroom scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_gt0.png}}
+    % \end{minipage}
+    % \begin{minipage}{0.32\linewidth} %ours
+    %     \subfloat[gas scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gas_our4_inset.pdf}}
+        
+    %     \subfloat[minecraft scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_our3_inset.pdf}}
+        
+    %     \subfloat[bedroom scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_our0.png}}               
+    % \end{minipage}
+    % \begin{minipage}{0.32\linewidth} % NERF
+    %     \subfloat[gas scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gas_nerf4_inset.pdf}}
+        
+    %     \subfloat[minecraft scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/mc_nerf3_inset.pdf}}
+        
+    %     \subfloat[bedroom scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/bed_nerf0.png}}      
+    % \end{minipage}
+    \Caption{Visualization of all scenes rendered/synthesized with different methods.} 
+    {%
+    The corresponding foveal image from {\bf OURS} and {\bf NeRF} are indicated in the dashed orange rectangles.
+    }
     % {\zh{add inset for 2nd and 3rd col}}
     \label{fig:results:comparison}
 \end{figure*}
 
-\begin{figure*}[htb]
-    \centering
-    \begin{minipage}{0.32\linewidth} %full res
+% \begin{figure*}[htb]
+%     \centering
+%     \begin{minipage}{0.32\linewidth} %full res
         
-        \subfloat[gallery scene (\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_GT_view_0001.png}}
-    \end{minipage}
-    \begin{minipage}{0.32\linewidth} %ours
+%         \subfloat[gallery scene (\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_GT_view_0001.png}}
         
-        \subfloat[gallery scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_our_001.png}}                
-    \end{minipage}
-    \begin{minipage}{0.32\linewidth} % NERF
+%         \subfloat[lobby scene(\textbf{GT})]{\includegraphics[width=0.96\linewidth]{TOG/figs/lobby_gt12.png}}
+%     \end{minipage}
+%     \begin{minipage}{0.32\linewidth} %ours
         
-        \subfloat[gallery scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_NeRF_001.png}}        
-    \end{minipage}    
+%         \subfloat[gallery scene (\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_our_001.png}}   
+        
+%         \subfloat[lobby scene(\textbf{OUR})]{\includegraphics[width=0.96\linewidth]{TOG/figs/lobby_our12.png}}
+%     \end{minipage}
+%     \begin{minipage}{0.32\linewidth} % NERF
+        
+%         \subfloat[gallery scene (\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/gallery_NeRF_001.png}} 
+        
+%         \subfloat[lobby scene(\textbf{NeRF})]{\includegraphics[width=0.96\linewidth]{TOG/figs/lobby_nerf12.png}}
+%     \end{minipage}    
     
-    \caption{Comparing our synthesis method (2nd column) with full resolution (1st column) rendering and NeRF (3rd column). (Cont.).}
-    % {\zh{add inset for 2nd and 3rd col}}
-    \label{fig:results:comparison2}
-\end{figure*}
+%     \caption{Comparing our synthesis method (2nd column) with full resolution (1st column) rendering and NeRF (3rd column). (Cont.).}
+%     % {\zh{add inset for 2nd and 3rd col}}
+%     \label{fig:results:comparison2}
+% \end{figure*}

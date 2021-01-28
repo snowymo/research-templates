@@ -20,9 +20,10 @@
 \newcommand{\assign}{\leftarrow}
 
 \newcommand{\sparseError}{E_{scene}}
-\newcommand{\pt}{\mathbf{p}}
+\newcommand{\pt}{\mathbf{q}}
 \newcommand{\rayo}{\mathbf{x}}
 \newcommand{\rayd}{\mathbf{v}}
+\newcommand{\intersectionFunc}{p}
 
 \newcommand{\SpatialPt}{\mathbf{q}}
 
@@ -36,13 +37,19 @@
 \newcommand{\finalError}{E}
 \newcommand{\latency}{l}
 
-\newcommand{\mlpLayerNum}{N_{mlp}}
-\newcommand{\mlpChannelNum}{N_{channel}}
+\newcommand{\mlpLayerNum}{N_{m}}
+\newcommand{\mlpChannelNum}{N_{c}}
 \newcommand{\image}{I}
 \newcommand{\imageFoveal}{I_{f}}
 \newcommand{\imageMid}{I_{m}}
 \newcommand{\imageFar}{I_{p}}
 
+\newcommand{\mlpFunc}{C}
+
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
-\newcommand{\netName}{GazeNet\xspace}
+
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+
+\newcommand{\camDir}{\mathbf{R}}
+\newcommand{\gazeDir}{\mathbf{\rayd_g}}
