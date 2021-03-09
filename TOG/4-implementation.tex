@@ -1,0 +1,26 @@
+\section{Implementation}\label{sec:impl}
+In this section, we elaborate on how we collect data for training, the specific parameters we choose for the two orthogonal neural networks, and the software/hardware environment we use.
+
+\paragraph{Data generation}
+For each scene, we generate two datasets separately for training foveal and periphery networks. The foveal dataset is composed of $256\times256$ images rendered at different views with 20 deg field-of-view, while the periphery dataset uses 45 deg field-of-view to rendering. The view translations ($\rayo$) are sampled every $5$ cm on each axis. The rotations ($\camDir$) are sampled so that adjacent samples are seamlessly connected with no overlap.
+% \nothing{
+% %\paragraph{Input encoding}
+% Similar to \cite{mildenhall2020nerf}, we also extend the input dimensions ($d=3$) to a higher dimensional ($d=60$) for training. 
+% \nothing{This is achieved via coding the input as:
+% \begin{align}
+% \iota (p) = (\sin(2^0 p), \cos(2^0 p), ..., \sin(2^{L-1}p, \cos(2^{L-1}p))
+% \label{eqn:inputencode}
+% \end{align}
+% The function $\iota (\cdot)$ is applied to dimension of $\SpatialPt=(r_\SpatialPt,\theta_\SpatialPt, \phi_\SpatialPt)$.
+% In our experiment we choose $L=10$.\qisun{What is $L$?}\dnc{It's an encoding parameter for input. maps 3D input to $R^{6L}$ space, as \autoref{eqn:inputencode} shows}
+% }}
+\paragraph{Optimized network parameters}
+Guided by the latency-quality joint optimization described in \Cref{sec:method:optimization}, we implemented the foveal network with $\mlpLayerNum=4$, $\mlpChannelNum=128$ and $\sphereNum = 32$. For the periphery neural network, the values are $\mlpLayerNum=4$, $\mlpChannelNum=96$ and $\sphereNum = 16$. These optimized parameters achieve a proper balance between quality and latency, as shown in \Cref{fig:results:comparison} and \Cref{tbl:ablation}.
+
+\paragraph{Ray marching bounding}
+We bound the ray marching within region that $\mathbf{\sphereRadius}$ are sampled in, thus has impact on $\sparseError$ in \Cref{eq:sparseError}. As shown in \Cref{fig:impl:bounding:off}, results with infinite upper bounding ($\sphereRadius\in[\sphereRadius_{near},+\infty)$ incur blurry and ghosting artifacts due to larger $\sparseError$. In contrast, limited bounding significantly improves the quality (\Cref{fig:impl:bounding:on}). %The bounding range, together with $\sphereNum$, $\mlpLayerNum$ and $\mlpChannelNum$, are determined by a spatial-temporal optimization, as detailed in \Cref{sec:method:optimization}.
+\input{TOG/fig_ray_bounding}
+\input{TOG/fig_tile_results}
+\paragraph{Environment}
+The system was implemented through OpenGL framework using CUDA and accelerated by TensorRT with Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz (256GB RAM) and one NVIDIA GTX 3090 graphics card.
+For each scene, we trained around 200 epochs for experiment use (about a day).

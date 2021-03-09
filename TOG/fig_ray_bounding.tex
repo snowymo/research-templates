@@ -1,9 +1,10 @@
-\begin{figure}
+\begin{figure}[hb]
     \centering
-    \subfloat[w/o bounding]{\includegraphics[width = 0.47\linewidth]{TOG/figs/depth_without_bound.png}}\hspace{1em}
-    \subfloat[w bounding]{\includegraphics[width = 0.47\linewidth]{TOG/figs/depth_with_bound.png}}
-    \Caption{Comparison of ray marching bounding.}
+    \subfloat[infinite upper bounding]{\includegraphics[width = 0.47\linewidth]{TOG/figs/depth_without_bound.png}\label{fig:impl:bounding:off}}\hspace{1em}
+    \subfloat[limited bounding]{\includegraphics[width = 0.47\linewidth]{TOG/figs/depth_with_bound.png}\label{fig:impl:bounding:on}}
+    \Caption{The effect of ray marching bounding.}
     {%
+    Compared to infinite ray marching \subref{fig:impl:bounding:off}, bounding the ray marching further improves visual quality in \subref{fig:impl:bounding:on}.
     }
-    \label{fig:method:bounding}
+    \label{fig:impl:bounding}
 \end{figure}

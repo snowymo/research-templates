@@ -4,11 +4,11 @@
 What problem we are trying to solve.
 Why it is important, and why people should care.
 }%note
-Efficient storage is a core challenge faced by today's computational systems, especially due to the fast-growing high resolution acquisition/display devices, the demand for 3D data quality, and machine learning.
-Thus, streaming services and remote cloud-based rendering (such as with Google Stadia and Nvidia Shield) have rapidly emerged in recent years. These storage-friendly systems have shown an unprecedented potential to reshape the traditional computer graphics pipeline by completely relieving the end user's computational workload and storage pressure, thus advancing device portability. Future spatial and immersive computing platforms such as VR and AR are potentially major beneficiaries due to the extensive demands of portability and energy-efficiency  \footnote{\url{https://www.vxchnge.com/blog/virtual-reality-data-storage-concern}}.
+Efficient storage is a core challenge faced by today's computational systems, especially due to the fast-growing high-resolution acquisition/display devices, the demand for 3D data quality, and machine learning.
+Thus, streaming services and remote cloud-based rendering (such as Google Stadia and Nvidia Shield) have rapidly emerged in recent years. These storage-friendly systems have shown an unprecedented potential to reshape the traditional computer graphics pipeline by completely relieving the end user's computational workload and storage pressure, thus advancing device portability. Future spatial and immersive computing platforms such as VR and AR are potentially major beneficiaries due to the extensive demands of portability and energy-efficiency  \footnote{\url{https://www.vxchnge.com/blog/virtual-reality-data-storage-concern}}.
 
-However, existing low-storage services have only been successfully deployed in relatively latency-insensitive platforms such as TV-based gaming consoles, due to the inevitable latency from transmission (more than 100ms \footnote{\url{https://www.pcgamer.com/heres-how-stadias-input-lag-compares-to-native-pc-gaming/}}). 
-In comparison, VR and AR require remarkably low latency and significantly higher fidelity/speed for sickness-free and natural experience. As a consequence, there is a demand for massive high-quality spatial-temporal data. Unfortunately, no solution exists today to deliver high-quality and dynamic/interactive immersive content at low latency and with low local storage.
+However, existing low-storage services have only been successfully deployed in relatively latency-insensitive platforms such as TV-based gaming consoles due to the inevitable latency from transmission (more than 100ms \footnote{\url{https://www.pcgamer.com/heres-how-stadias-input-lag-compares-to-native-pc-gaming/}}). 
+In comparison, VR and AR require remarkably low latency and significantly higher fidelity/speed for a sickness-free and natural experience. As a consequence, there is a demand for massive high-quality spatial-temporal data. Unfortunately, no solution exists today to deliver high-quality and dynamic/interactive immersive content at low latency and with low local storage.
 
 \note{
 What prior works have done, and why they are not adequate.
@@ -16,10 +16,10 @@ What prior works have done, and why they are not adequate.
 }%notez
 %\qisun{(Jan 5, 2021) We should include two main fields: neural representation and foveated rendering}
 
-Recent years have witnessed a surge in neural representations as an alternative to compact 3D representations such as point clouds and polygonal meshes, enabling compact assets. Application of neural representations include voxelization \cite{sitzmann2019deepvoxels}, distance fields \cite{sitzmann2019metasdf,mildenhall2020nerf,park2019deepsdf} and many more. However, existing solutions suffer from either high time consumption or low image fidelity with large scenes. 
+Recent years have witnessed a surge in neural representations as an alternative to compact 3D representations such as point clouds and polygonal meshes, enabling compact assets. Application of neural representations includes voxelization \cite{sitzmann2019deepvoxels}, distance fields \cite{sitzmann2019metasdf,mildenhall2020nerf,park2019deepsdf}, and many more. However, existing solutions suffer from either high time consumption or low image fidelity with large scenes. 
 
 Acceleration without compromising perceptual quality is also an ultimate goal of real-time rendering.
-Gaze-contingent rendering approaches have shown remarkable effectiveness of presenting imagery of perceptual quality identical to full resolution rendering~\cite{Guenter:2012:F3G,Patney:2016:TFR,Tursun:2019:LCA}. This is achieved by harnessing high field-of-view(FoV) head-mounted displays and high precision eye-tracking technologies. However, existing foveated rendering approaches still require locally stored full 3D assets, resulting in long transmission time and storage volume, whose availability is unfortunately limited in wearable devices.
+Gaze-contingent rendering approaches have shown remarkable effectiveness in presenting imagery of perceptual quality identical to full resolution rendering~\cite{Guenter:2012:F3G,Patney:2016:TFR,Tursun:2019:LCA}. This is achieved by harnessing high field-of-view(FoV) head-mounted displays and high precision eye-tracking technologies. However, existing foveated rendering approaches still require locally stored full 3D assets, resulting in long transmission time and storage volume, whose availability is unfortunately limited in wearable devices.
 
 \qisun{(Jan 22, 2021) Do we want to discuss 6DoF video synthesis here?}
 \note{
@@ -27,17 +27,17 @@ What our method has to offer, sales pitch for concrete benefits, not technical d
 Imagine we are doing a TV advertisement here.
 }%note
 
-To overcome these open challenges mentioned above, we present the first gaze-contingent and interactive neural synthesis for high-quality 3D scenes. Aiming at the next-generation wearable, low-latency and low-storage VR/AR platforms, our compact neural model predicts stereo frames given users' real-time head and gaze motions. The predicted frames are perceptually identical to traditional real-time rendering of high-quality scenes.
-With wide FoV and high resolution eye-tracked VR displays, our method significantly reduces 3D data storage (from 100MB to 0.5MB) thus enables instant viewing (without long loading/transmission waits) compared to traditional rendering pipelines; preserves visual quality, and improves responsiveness (from 9s to as low as 20 ms) compared with alternative view neural synthesis methods. 
-Tailoring to future lightweight, power and memory-efficient wearable display systems, expected to be active all-day long akin to today's everyday-use mobile phones, our method achieves minimal local storage for high-quality 3D scenes.  %\praneeth{---- somoene please check the text in the brackets and make sure it is ok :)}
+To overcome these open challenges mentioned above, we present the first gaze-contingent and interactive neural synthesis for high-quality 3D scenes. Aiming at the next-generation wearable, low-latency, and low-storage VR/AR platforms, our compact neural model predicts stereo frames given users' real-time head and gaze motions. The predicted frames are perceptually identical to the traditional real-time rendering of high-quality scenes.
+With wide FoV and high-resolution eye-tracked VR displays, our method significantly reduces 3D data storage (from 100MB mesh to 0.5MB neural model) compared with traditional rendering pipelines; it also remarkably improves responsiveness (from 9s to 20 ms) compared with alternative view neural synthesis methods. That is, we enable instant immersive viewing without long loading/transmission waits while preserving visual fidelity.
+Tailored to future lightweight, power and memory-efficient wearable display systems, expected to be active all-day long akin to today's everyday-use mobile phones, our method achieves minimal local storage for high-quality 3D scenes.  %\praneeth{---- somoene please check the text in the brackets and make sure it is ok :)}
 
 \note{
 Our main idea, giving people a take home message and (if possible) see how clever we are.
 }%note
 
-To achieve immersive viewing with low storage, high visual quality as well as low systematic latency, we introduce spatial-angular human psychophysical characteristics to neural representation and synthesis. 
+To achieve immersive viewing with low storage, high visual quality and low systematic latency, we introduce spatial-angular human psychophysical characteristics to neural representation and synthesis. 
 %To this end, we build both the retina-matched neural models and VR-tailored representation coordinates, towards high visual quality as well as low systematic latency. \praneeth{-- this line is a little confusing to me}. 
-Specifically, we represent 3D scenes with concentric spherical coordinates. Our representation also allows for depicting the foveated color sensitivity and stereopsis, during both the training and inference phases. 
+Specifically, we represent 3D scenes with concentric spherical coordinates. Our representation also allows for depicting the foveated color sensitivity and stereopsis during both the training and inference phases. 
 Furthermore, we derive an analytical spatial-temporal perception model to optimize our neural scene representation towards imperceptible loss in image quality and latency.\qisun{better? This paragraph was a bit messy before. Tried to clean up.}
 
 \note{
@@ -55,7 +55,8 @@ Our algorithms and methods to show technical contributions and that our solution
 Results, applications, and extra benefits.
 }%note
 
-We validate our approach by conducting numerical analysis and user evaluations on commercially available AR/VR display devices. The series of experiments reveal our method's effectiveness in delivering an interactive VR viewing experience, perceptually identical to an arbitrarily high quality rendered 3D scene, with significantly lowered data storage. We make the following major contributions:
+We validate our approach by conducting numerical analysis and user evaluation on commercially available AR/VR display devices. The series of experiments reveal our method's effectiveness in delivering an interactive VR viewing experience, perceptually identical to an arbitrarily high quality rendered 3D scene, with significantly lowered data storage. We will open source our implementation and dataset.
+We make the following major contributions:
 \begin{itemize}
     \item A low-latency, interactive, and significantly low-storage immersive application. It also offers full perceptual quality with instant high resolution and high FoV first-person VR viewing.
     \item A scene parameterization and vision-matched neural representation/synthesis method considering both visual- and stereo- acuity.
